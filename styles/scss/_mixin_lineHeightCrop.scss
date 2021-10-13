@@ -1,0 +1,38 @@
+/*
+	line-heightの不要な余白を打ち消す
+	-----------------------------------------------
+	変数：
+	$line-height：適用したい要素のline-heightを指定する
+	-----------------------------------------------
+	注意：
+	 - IEの場合、<li>には付与しない
+	 - 擬似要素が使用できなくなるので必要に応じて入れ子にする
+	-----------------------------------------------
+	変数管理の参考：
+	変数管理用のscssに以下のように設定しておくと使いやすい
+	 - $leading-none: 1 !default;
+	 - $leading-x-tight: 1.25 !default;
+	 - $leading-tight: 1.5 !default;
+	 - $leading-snug: 1.6 !default;
+	 - $leading-normal: 1.7 !default;
+	 - $leading-relaxed: 1.8 !default;
+	 - $leading-loose: 2 !default;
+	-----------------------------------------------
+*/
+
+@mixin lineHeightCrop($line-height) {
+	&::before {
+		display: block;
+		width: 0;
+		height: 0;
+		margin-top: calc((1 - #{$line-height}) * .5em);
+		content: "";
+	}
+	&::after {
+		display: block;
+		width: 0;
+		height: 0;
+		margin-bottom: calc((1 - #{$line-height}) * .5em);
+		content: "";
+	}
+}

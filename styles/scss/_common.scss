@@ -1,0 +1,48 @@
+
+header{
+  background-color: rgba($color: $color-white, $alpha: 0.80);
+  // backdrop-filter: blur(10px);
+}
+
+// 共通設定（line-heightによる余白ずれ防止）
+.blog-title{
+  line-height: $leading-normal;
+  @include lineHeightCrop($leading-normal)
+}
+.blog-date{
+  line-height: $leading-none;
+}
+.blog-cate{
+  line-height: $leading-none;
+}
+
+// hoverアニメーション
+.hover-underline{
+  span{
+    position: relative;
+    &::before{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      border-radius: 100px;
+      opacity: 0;
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      transition-property: bottom opacity;
+      transition-duration: 0.5s;
+    }
+  }
+  &:hover{
+    span{
+      @include hover(){
+        &::before{
+          opacity: 1;
+          bottom: -8px;
+        }
+      }
+    }
+  }
+}

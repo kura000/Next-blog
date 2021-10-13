@@ -1,0 +1,14 @@
+// font-sizeを一括指定する
+// ~1401：pcのフォントサイズ(px)
+// 767~：spのフォントサイズ(px)
+// functionとセットで使用する
+
+// font-sizeをVWで指定
+@mixin fz($pc, $sp){
+	@media screen and (min-width: 768px){
+	font-size: ($pc / 10) * 1rem;
+	}
+	@media screen and (max-width: 767px){
+		font-size: ($sp / 10) * 1rem;
+	}
+}

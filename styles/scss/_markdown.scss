@@ -1,0 +1,232 @@
+.detail{
+
+  &.layout--1col{
+    .detail__body{
+      max-width: 100%;
+    }
+    .detail__sideBar{
+      display: none;
+    }
+  }
+  &.layout--2col{
+    .detail__body{
+      width: 100%;
+      @include mq-up(lg){
+        max-width: 640px;
+      }
+    }
+    .detail__sideBar{
+      width: 100%;
+      @include mq-up(lg){
+        width: calc(100% - 690px);
+      }
+    }
+  }
+  .detail__nav{
+    list-style: none;
+    top: 80px;
+    a{
+      display: block;
+      color: $color-black;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .detail__navTitle{
+      margin: 0;
+    }
+    .detail__navItem{
+      transition: color 0.3s;
+      padding: 3px 5px;
+      & > *{
+        transition: color 0.3s;
+      }
+      &:hover{
+        @include hover(){
+          color: $color-text-index;
+          & > *{
+            color: $color-text-index;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .detail__navh2{
+      font-size: $text-base;
+      margin-top: 0;
+    }
+    .detail__navh2:nth-of-type(n+2){
+      margin-top: 1.5em;
+    }
+    .detail__navh3{
+      font-size: $text-sm;
+      margin-top: 0;
+      padding-left: 1.5em;
+      position: relative;
+      &::before{
+        content: "- ";
+        position: absolute;
+        top: 1px;
+        left: 0.5em;
+      }
+    }
+  }
+}
+
+.markdown{
+  // 見出し
+  h2{
+    font-weight: bold;
+    font-size: $text-2xl;
+    line-height: $leading-snug;
+    margin: 50px 0 30px;
+    @include lineHeightCrop($leading-snug);
+    @include mq-down(md){
+      margin: 40px 0 20px;
+    }
+  }
+
+  // サブ見出し
+  h3{
+    font-size: $text-xl;
+    font-weight: bold;
+    line-height: $leading-snug;
+    margin: 50px 0 20px;
+    @include lineHeightCrop($leading-snug);
+    @include mq-down(md){
+      margin: 40px 0 20px;
+    }
+  }
+
+  // コードの見出し（HTMLとかCSSとか）
+  h4{
+    border-bottom: 1px solid $color-black;
+    font-size: $text-lg;
+    font-weight: bold;
+    line-height: $leading-snug;
+    margin: 10px 0 10px;
+    padding-bottom: 10px;
+    @include lineHeightCrop($leading-snug);
+  }
+
+  // 段落
+  p{
+    font-size: $text-base;
+    line-height: $leading-loose;
+    margin: 1.75em 0;
+    @include lineHeightCrop($leading-loose);
+    strong{
+      font-weight: bold;
+    }
+  }
+
+  // リスト
+  ul{
+    margin: 20px auto;
+    list-style-type: disc;
+    padding-left: 5%;
+  }
+  ol{
+    margin: 20px auto;
+    list-style-type: decimal-leading-zero;
+    padding-left: 2em;
+  }
+  li{
+    margin: 1.25em auto 0;
+  }
+
+  // リンク
+  a{
+    color: $color-text-link;
+    letter-spacing: 0.01em;
+    text-decoration: underline;
+    transition: opacity 0.5s;
+    &:hover{
+      text-decoration: none;
+      opacity: 0.7;
+    }
+  }
+
+  figure{
+    margin: 40px 0;
+    background-color: transparent;
+  }
+  img{
+    width: auto;
+    @include mq-down(lg){
+      width: 100%;
+    }
+  }
+  code{
+
+  }
+  // table{
+  //   border-bottom: 1px solid $color-grey;
+  //   border-right: 1px solid $color-grey;
+  //   @include mq-down(lg){
+  //     width: 100%;
+  //     word-break: break-all;
+  //   }
+  // th{
+  //     border-left: 1px solid $color-grey;
+  //     border-top: 1px solid $color-grey;
+  //     padding: 5px 20px;
+  //     @include mq-down(lg){
+  //       width: 100%;
+  //       display: block;
+  //       text-align: left;
+  //     }
+  //   }
+  //   tbody{
+  //     tr{
+  //       td{
+  //         background-color: $color-base-0;
+  //         border-left: 1px solid $color-grey;
+  //         border-top: 1px solid $color-grey;
+  //         padding: 10px 20px;
+  //         @include mq-down(lg){
+  //           width: 100%;
+  //           display: block;
+  //           text-align: left;
+  //         }
+  //         & + td{
+  //           @include mq-down(lg){
+  //             border-top: dashed 1px lighten($color-grey, 20%);
+  //           }
+  //         }
+  //       }
+
+  //     }
+  //   }
+  // }
+
+  // 付箋のスタイル
+  // .sticky{
+  //   padding: 1em;
+  //   background-color: $color-sub02;
+  //   border-left: 0.5em solid $color-main;
+  //   color: $color-main;
+  //   @include fz(14, 12);
+  // }
+
+  // // 目次
+  // #index{
+  //   border: 2px solid $color-main;
+  //   border-radius: 10px;
+  //   overflow: hidden;
+  //   ul,li{
+  //     margin: 0;
+  //     a{
+  //       color: $dark-grey;
+  //     }
+  //   }
+  //   .index__wrap{
+  //     padding: 1em;
+  //   }
+  //   .index__title{
+  //     background-color: $color-main;
+  //     color: $white;
+  //     padding: 5px 0;
+  //     text-align: center;
+  //   }
+  // }
+}

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import "./scss/variable";
+@import "./scss/mixin_fz";
+@import "./scss/mixin_hover";
+@import "./scss/mixin_lineHeightCrop";
+@import "./scss/mixin_mq";
+@import "./scss/base";
+@import "./scss/common";
+@import "./scss/markdown";

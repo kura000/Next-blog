@@ -1,0 +1,32 @@
+/*-------------- ブレークポイント作成 ここから ----------------*/
+// min-width ×××× px以上の場合
+$breakpoint-up: (
+	"xs": "screen and (min-width: 350px)",
+	"sm": "screen and (min-width: 400px)",
+	"md": "screen and (min-width: 768px)", // tailwind md
+	"lg": "screen and (min-width: 1024px)", // tailwind lg
+	"point": "screen and (min-width: 1145px)",
+	"xl": "screen and (min-width: 1400px)",
+) !default;
+
+// max-width ×××× px未満の場合
+$breakpoint-down: (
+	"xs": "screen and (max-width: 349px)",
+	"sm": "screen and (max-width: 399px)",
+	"md": "screen and (max-width: 767px)",
+	"lg": "screen and (max-width: 1023px)",
+	"point": "screen and (max-width: 1144px)",
+	"xl": "screen and (max-width: 1399px)",
+) !default;
+
+@mixin mq-up($breakpoint: md) {
+	@media #{map-get($breakpoint-up, $breakpoint)} {
+		@content;
+	}
+}
+@mixin mq-down($breakpoint: md) {
+	@media #{map-get($breakpoint-down, $breakpoint)} {
+		@content;
+	}
+}
+/*-------------- ブレークポイント作成 ここまで ----------------*/
